@@ -1,0 +1,6 @@
+.TaskItem{
+    display: flex;
+}
+.TaskItem>*{
+    flex: 1;
+}
