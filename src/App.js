@@ -4,22 +4,21 @@ import CreateTask from './components/createTaskBar/CreateTask';
 import Tasks from './components/tasks/Tasks';
 import PaginationButtons from './components/controllButtons/PaginationButtons';
 import SortButtons from './components/controllButtons/SortButtons';
-import Alert from './components/alert/Alert';
+import Message from './components/message/Message';
 import './index.css';
-
-
-
-
 
 function App() {
   return (
     <div className="wrapper">
       <Header/>
-      <Alert/>
-      <CreateTask/>
-      <PaginationButtons/>
-      <SortButtons/>
-      <Tasks/>
+        <main>
+          <Message/>
+          <CreateTask/>
+          <PaginationButtons/>
+          <SortButtons/>
+          <Tasks/>
+        </main>
+      
     </div>
   );
 }

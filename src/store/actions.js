@@ -16,10 +16,6 @@ import {
     Exit
 } from './actionCreators';
 
-window.unload=()=>{
-    localStorage.clear()
-}
-
 const showMesageTime=3000;
 
 
@@ -109,12 +105,14 @@ export function setEdit(taskId,text){
                                                                 body:text
                                                             })
             const data=await response.json();
+            console.log(data)
         if(data.status==='ok'){
             setTimeout(()=>{
-                dispatch(MessageRefresh())
+                dispatch(MessageRefresh());
             },showMesageTime);
-            dispatch(PostingEditedDataSuccess(data.status))
-            }else{
+            dispatch(PostingEditedDataSuccess(data.status));
+            dispatch(getTaskList());
+        }else{
             setTimeout(()=>{
                 dispatch(MessageRefresh())
             },showMesageTime);

@@ -1,29 +1,45 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import {MdKeyboardArrowDown,MdKeyboardArrowUp} from "react-icons/md";
 import {connect} from 'react-redux';
 import {getTaskList} from '../../store/actions';
+import {Btn} from './ControllButtons.module.scss';
 
 
 const SortButtons = ({onSort,sortField}) => {
-  const[clickCount,setClickCount]=useState(0);
- 
-  
-  let direction=(clickCount%2===0&&clickCount!==0?'desc':'asc');
-  
+
+  let[state,setState]=useState({clickCount:1,direction:'asc'});
+
+  useEffect(()=>{
+    if(state.clickCount!==1){
+      localStorage.setItem('sortDirection',state.direction);
+      localStorage.setItem('sortField',sortField);
+      onSort(localStorage.getItem('currentPagePosition'),sortField)
+    } 
+  })
 
   const sortListItem=()=>{
-    setClickCount(clickCount+1);   
-    localStorage.setItem('sortDirection',direction);
-    localStorage.setItem('sortField',sortField)
-    onSort(localStorage.getItem('currentPagePosition'),sortField)
+    if(state.clickCount%2===0){
+        setState(prevState=>{
+            return{
+              clickCount:prevState.clickCount+1,
+              direction:'desc'
+            }
+        })
+    }else{
+      setState(prevState=>{
+          return{
+            clickCount:prevState.clickCount+1,
+            direction:'asc'
+          }
+      })
+    }
   } 
-
   return (
     <div>
-      <button onClick={sortListItem}>
+      <button className={Btn} onClick={sortListItem}>
         {sortField}
-        {}
-        {direction==='desc'?<MdKeyboardArrowUp/>:<MdKeyboardArrowDown/>}
+        {  state.direction==='asc'?<MdKeyboardArrowDown/>:<MdKeyboardArrowUp/>
+}
       </button>
     </div>
   )

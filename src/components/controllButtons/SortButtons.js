@@ -1,15 +1,10 @@
 import React from 'react';
 import SortButton from './SortButton';
-import Classes from './sortbutton.module.css';
+import {BtnSortContainer} from './ControllButtons.module.scss'
 const SortButtons = () => {
   return (
-    <div className={Classes.ButtonsContainer}>{
-    ['id','username','email','status'].map((item,index)=>(
-    <SortButton 
-    sortField={item} 
-    key={index}
-    />)
-    )}
+    <div className={BtnSortContainer} >{
+    ['username','email','status'].map((item,index)=>(<SortButton sortField={item} key={index}/>))}
     </div>
   )
 }

@@ -1,0 +1,66 @@
+$mainColor:#0080ff;
+
+.TaskContainer{
+    padding: 4rem;
+    text-align: center;
+}
+.Task{
+    display: flex;
+    width: 100%;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.2);
+    margin: 1rem 0;
+}
+
+.TaskLabel{
+    width: 50px;
+    font-size: 30px;
+    position: relative;
+    color:$mainColor ;
+    &:hover{
+        cursor: pointer;
+    }
+    svg{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform:translate(-50%,-50%) ;
+    }
+}
+.TaskForm{
+    width: 100%;
+    padding: 1rem 1rem;
+    text-align: left;
+    span{
+        font-size: 1.4rem;
+        color: grey;
+        padding-left:1rem ;        }
+}
+.TaskTextarea{
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid grey;
+    background-color: transparent;
+    font-size: 1.6rem;
+    font-weight: bold;
+    resize: none;
+    &:focus{
+        outline: none;
+    }
+}
+.Btn{
+    background-color:transparent;
+    border: none;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: $mainColor;
+    padding: 0 1rem;
+    color: white;
+    &:focus{
+        outline: none;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+}

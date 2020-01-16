@@ -1,20 +1,24 @@
 import React,{useState} from 'react';
 import {connect} from 'react-redux';
-import {getTaskList,sendNewTask} from '../../store/actions';
+import {sendNewTask} from '../../store/actions';
+import {form,Btn,CreateTaskInputs} from './CreateTask.module.scss';
 
-const CreateTask = ({refreshTaskList,onSetNewTask}) => {
+
+const CreateTask = ({onSetNewTask}) => {
     const initState={
         username:'',
         email:'',
         text:'',
     };
+
 const [newTask,setNewTask]=useState(initState);
 
 const handleInput=(e)=>{
     const newState={...newTask};
-    newState[e.target.id]=e.target.value;
+    newState[e.target.name]=e.target.value;
     setNewTask(newState);
 }
+
 const handleSubmit=(e)=>{
     e.preventDefault();
     const form=new FormData();
@@ -23,32 +27,20 @@ const handleSubmit=(e)=>{
     form.append('text',newTask.text);
     setNewTask(initState);
     onSetNewTask(form)
-    // refreshTaskList()
 }
 
   return (
-    <form onSubmit={handleSubmit}>
-        <label htmlFor="username">
-           User name: <input type="text" id='username' onChange={handleInput} value={newTask.username} required/>
-        </label>
-        <label htmlFor="email">
-           User e-mail: <input type="email" id='email'
-           onChange={handleInput}
-           value={newTask.email} required/>
-        </label>
-        <label htmlFor="text">
-           Task text: <input type="text" id='text'
-           onChange={handleInput}
-           value={newTask.text} required/>
-        </label>
-        <button>Enter Task</button>
+    <form className={form} onSubmit={handleSubmit}>
+        <input className={CreateTaskInputs} type="text" name='username' onChange={handleInput} value={newTask.username} placeholder='Имя пользователя' required/>
+        <input className={CreateTaskInputs} type="email" name='email' onChange={handleInput} value={newTask.email} placeholder='E-mail' required/>
+        <input className={CreateTaskInputs} type="text" name='text'  onChange={handleInput} value={newTask.text}  placeholder='Задача' required/>
+        <button className={Btn}>Создать задание</button>
     </form>
   )
 }
 
 function mapDispatchToProps(dispatch){
     return{
-        refreshTaskList: ()=>dispatch(getTaskList()),
         onSetNewTask: form=>dispatch(sendNewTask(form))
     }
 }

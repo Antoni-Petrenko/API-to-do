@@ -1,0 +1,24 @@
+.Btn{
+    background-color: transparent;;
+    padding: .5rem 1.6rem;
+    border: 2px solid #0080ff ;
+    border-radius: 100px;
+    color: #0080ff;
+    cursor: pointer;
+    transition: .3s;
+    &:focus{
+        outline: none;
+    }
+}
+.BtnPaginationContainer{
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.BtnSortContainer{
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}

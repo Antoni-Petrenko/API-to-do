@@ -2,17 +2,19 @@ import React from 'react';
 import PaginationBtn from './PaginationButton';
 import {connect} from 'react-redux';
 import {getTaskList} from '../../store/actions';
+import {BtnPaginationContainer} from './ControllButtons.module.scss'
 
 const PaginationButtons = ({total_task_count,onLoad}) => {
   return (
-    <div>
-      <div>{ 
-        total_task_count.length?total_task_count.map((item,index)=>
+    <section>
+      <div className={BtnPaginationContainer}>{ 
+          total_task_count.length?total_task_count.map((item,index)=>
               <PaginationBtn handleClick={onLoad} key={index} num={index+1}/>):null
       }</div>
-    </div>
+    </section>
   )
 }
+
 
 function mapStateToProps(state){
     return{
@@ -21,7 +23,7 @@ function mapStateToProps(state){
 }
 function mapDispatchToProps(dispatch){
     return{
-        onLoad: param=>dispatch(getTaskList(param)),
+        onLoad: page=>dispatch(getTaskList(page)),
     }
 }
 

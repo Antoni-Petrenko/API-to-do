@@ -1,11 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: inherit;
+    font-family: 'Montserrat', sans-serif;
 }
 html{
     font-size: 62.5%;
 }
 #root{
     box-sizing: border-box;
+    background-image: linear-gradient(to right bottom , #f1f1f1,#ffffff);
+    width: 100vw;
+    height: 100vh;
 }

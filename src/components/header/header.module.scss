@@ -1,0 +1,68 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7vh;
+    background-image: linear-gradient(to right top, #00c6ff,#0072ff);
+    padding: 0 4rem;
+    box-shadow: 3px 3px 5px rgba(0,0,0,.2);
+    
+}
+
+.Form{
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+    .FormGroup{
+        input{
+            text-align: center;
+            color: white;
+            font-size: 1.6rem;
+            background-color: transparent !important;
+            border:none;
+            padding: .5rem 1.6rem;
+            border-bottom:2px solid #fff;
+            width: 100px;
+            transition: .3s;
+            &:focus{
+                outline: none;
+                box-shadow: 2px 2px 2xp rgba(0,0,0,.2);
+            }
+            &::placeholder{
+                color: white;
+            }
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover,
+            &:-webkit-autofill:focus{
+                box-shadow: 0 0 0px 1000px  #008eff inset;
+                color: white;
+            }
+          
+            &:focus:invalid {
+                border-bottom: 2px solid rgb(253, 118, 69);
+            }
+            &:focus:valid {
+                border-bottom: 2px solid rgba(126, 250, 25, 0.986);
+            }
+        }
+    }
+}
+.Btn{
+    background-color: transparent;;
+    padding: .5rem 1.6rem;
+    border: 2px solid white ;
+    border-radius: 100px;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+    &:focus{
+        outline: none;
+    }
+}
+.Logo{
+    color:#fff;
+    font-size: 2.4rem;
+}
+.Logo>span{
+    margin-left: 1rem;
+}

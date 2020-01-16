@@ -1,9 +1,13 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
+import {Btn,FormGroup,Form} from './header.module.scss';
 import { getLogin, Logout } from '../../store/actions';
 
+
 const LoginBar = ({onLogin,isAdmin,onLogout}) => {
+
   const initState={username:'',password:''}
+
   const [userLogin,setUserLogin]=useState(initState);
 
  const handleInputs=(e)=>{
@@ -23,11 +27,20 @@ const LoginBar = ({onLogin,isAdmin,onLogout}) => {
 
   return (
     <>
-    {isAdmin?<button onClick={onLogout}>Exit</button>:<form onSubmit={handleSubmit}>
-        <label htmlFor="login">Login: <input type="text" id='username' value={userLogin.username} onChange={handleInputs} required/></label>
-        <label htmlFor="password">Password: <input type="password" id='password' value={userLogin.password} onChange={handleInputs} required/></label>
-        <button>Login</button>
-    </form>}
+    {isAdmin?
+    <button className={Btn} onClick={onLogout}>Выход</button>:
+      <form className={Form} onSubmit={handleSubmit}>
+        <div className={FormGroup}>
+          <input type="text" id='username' value={userLogin.username} onChange={handleInputs} 
+        placeholder="Логин" required/>
+        </div>
+        <div className={FormGroup}>
+          <input type="password" id='password' value={userLogin.password} onChange={handleInputs} placeholder="Пароль" required/>
+        </div>
+          
+        <button className={Btn}>Войти</button>
+      </form>
+      }
     </>
     
   )
