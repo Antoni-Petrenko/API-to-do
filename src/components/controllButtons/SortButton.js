@@ -37,7 +37,9 @@ const SortButtons = ({onSort,sortField}) => {
   return (
     <div>
       <button className={Btn} onClick={sortListItem}>
-        {sortField}
+        {sortField==='username'&&'имя'}
+        {sortField==='email'&&'email'}
+        {sortField==='status'&&'статус'}
         {  state.direction==='asc'?<MdKeyboardArrowDown/>:<MdKeyboardArrowUp/>
 }
       </button>
