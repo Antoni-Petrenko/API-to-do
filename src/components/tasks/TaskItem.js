@@ -46,14 +46,14 @@ const TaskItem = ({id,username,email,text,status,isAdmin,onEdit}) => {
       <label className={TaskLabel} htmlFor={id}>
           {task.status?<MdRadioButtonChecked/>:<MdRadioButtonUnchecked/>}
       </label>
-        <form className={TaskForm} onSubmit={isAdmin?handleSubmit:()=>console.log('авторизуйтесь')}>
+        <form className={TaskForm} onSubmit={handleSubmit}>
           <textarea className={TaskTextarea} name='text' value={task.text} onChange={isAdmin?handleInput:()=>console.log('авторизуйтесь')}/>
-          <input style={{display:'none'}} type='checkbox' name='status' id={id} checked={isAdmin?task.status:()=>console.log('авторизуйтесь')} onChange={handleInput}/>
+          <input style={{display:'none'}} type='checkbox' name='status' id={id} checked={task.status} onChange={isAdmin?handleInput:handleSubmit}/>
           <span>Имя: {username}</span>
           <span>E-mail: {email}</span>
           <span>{isTaskTextEdit&&'Редактировано Администратором'}</span>
         </form>
-      <button className={Btn} onClick={isAdmin?handleSubmit:()=>console.log('авторизуйтесь')}>Редактировать</button>
+      <button className={Btn} onClick={handleSubmit}>Редактировать</button>
     </li>
   )
 }

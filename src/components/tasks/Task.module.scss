@@ -7,15 +7,15 @@ $mainColor:#0080ff;
 .Task{
     display: flex;
     width: 100%;
-    border-radius: 20px;
+    border-radius: 2rem;
     background-color: #fff;
     box-shadow: 5px 5px 5px rgba(0,0,0,.2);
     margin: 1rem 0;
 }
 
 .TaskLabel{
-    width: 50px;
-    font-size: 30px;
+    width: 5rem;
+    font-size: 3rem;
     position: relative;
     color:$mainColor ;
     &:hover{
@@ -52,8 +52,8 @@ $mainColor:#0080ff;
 .Btn{
     background-color:transparent;
     border: none;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
     background-color: $mainColor;
     padding: 0 1rem;
     color: white;

@@ -42,6 +42,7 @@ const handleSubmit=(e)=>{
 function mapDispatchToProps(dispatch){
     return{
         onSetNewTask: form=>dispatch(sendNewTask(form))
+
     }
 }
 export default connect(null,mapDispatchToProps)(CreateTask)
