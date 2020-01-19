@@ -10,15 +10,15 @@ import './index.css';
 function App() {
   return (
     <div className="wrapper">
-      <Header/>
-        <main>
-          <Message/>
-          <CreateTask/>
-          <PaginationButtons/>
-          <SortButtons/>
-          <Tasks/>
-        </main>
-      
+      <Header />
+      <main>
+        <Message />
+        <CreateTask />
+        <PaginationButtons />
+        <SortButtons />
+        <Tasks />
+      </main>
+
     </div>
   );
 }
