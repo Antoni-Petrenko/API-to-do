@@ -20,4 +20,4 @@ class API {
         }
     }
 }
-export const uxcandyAPI = new API('https://uxcandy.com/~shapoval/test-task-backend/v2/', 'hell');
+export const uxcandyAPI = new API('https://uxcandy.com/~shapoval/test-task-backend/v2/', 'Anton-Petrenko');
